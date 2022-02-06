@@ -42,7 +42,7 @@ def main():
     # Search for notes:
     try:
         response = requests.get(
-            f'http://localhost:41184/search?query="{tree[-1]}"', params=params)
+            f'http://localhost:41184/search?query=title:{tree[-1]}', params=params)
         response.raise_for_status()
     except requests.exceptions.HTTPError as err:
         print("Couldn't ping the server")
@@ -153,21 +153,6 @@ def main():
     except requests.exceptions.HTTPError as err:
         print(f"Failed edit notebook page. Exiting")
         raise SystemExit(err)
-
-
-# ![image0.jpg](:/62108bdfcad8482a93518e307f2c8a78)<br><br>
-# I am a note. Hej
-# ![image1.jpg](:/8ea4f852ea344aeca8932e633c3df04e "")<br><br> Dav
-# ![image2.jpg](:/ff3c7e8e22f94735b215f68239471c7d "Hello alt text")<br><br>
-# ![image3.jpg](:/10f8e0a942e24e03ab47d5d75c69de38)<br><br>
-# ![image4.jpg](:/f1f1655aebfb45f7bfc252d9035d693b)<br><br>
-# ![image5.jpg](:/5c7f84d8638b4dbb827fa82cb9e83670)<br><br>
-# ![image6.jpg](:/bcf649849e1445788292cf1bf24732bc)<br><br>
-# ![image7.jpg](:/bab2cd1b54dd448fa26974a61c8b7dd7)<br><br>
-# ![image8.jpg](:/04f78a5fd6354f9ead24be60a4198f5e)<br><br>
-# ![image9.jpg](:/e1d0e185d254424c982c742ab0e5b060)<br><br>
-# ![image10.jpg](:/18406ec932694993bfe313da172187c7)<br><br>
-
 
 
 if __name__ == "__main__":
